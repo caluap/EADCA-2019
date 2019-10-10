@@ -55,7 +55,7 @@
   
   Para a primeira, adotamos {\itshape features} prosódicas, ou seja, aquelas tipicamente relacionadas à propriedades expressivas no falar de sílabas, palavras ou frases, e que contemplam características como ritmo, intensidade, tom etc. Especificamente, escolhemos {\itshape raiz do valor quadrático médio} \textsc{(rms)}, como medida de intensidade, e {\itshape frequência fundamental} $(f_0)$ --- em ambos os casos, {\itshape features} que, se consideradas no nível da sílaba, retêm informações sobre expressividade afetiva da fala \cite{rao2010characterization}.
   
-  Para a representação das {\itshape features}, optamos por usar a tecnologia {\itshape variable fonts}, introduzida pela especifação 1.8 da OpenType \cite{varfontssepcs} em 2016 e que, desde então, já está incorporada nos principais sistemas operacionais \cite{varfontossupport} e navegadores \cite{varfontbrowsersupport}. Nela, os pontos que compõe o contorno do desenho de cada glifo em uma determinada fonte podem ter suas coordenadas deslocadas a partir de diversos eixos de variação, combináveis entre si e que permitem, assim, que a aparência de cada letra seja modulada dinamicamente. O exemplo mais comum de um eixo de variação seria o de {\itshape peso}, que varia desde uma letra mais fina até uma mais grossa, tornando contínuas e combináveis as variações que tipicamente são discretas (e.g. uma fonte não-{\itshape variable} terá um arquivo para o negrito, outro para o regular, outro para o leve etc). Em nosso teste, usamos 4 modulações tipográficas. {\itshape Peso}, {\itshape largura}, {\itshape inclinação} e {\itshape baseline shift}, como ilustradas pela Figura~\ref{fig:type_modulations}.
+  Para a representação das {\itshape features}, optamos por usar a tecnologia {\itshape variable fonts}, introduzida pela especifação 1.8 da OpenType \cite{varfontssepcs} em 2016 e que, desde então, já está incorporada nos principais sistemas operacionais e navegadores \cite{varfontossupport}. Nela, os pontos que compõe o contorno do desenho de cada glifo em uma determinada fonte podem ter suas coordenadas deslocadas a partir de diversos eixos de variação, combináveis entre si e que permitem, assim, que a aparência de cada letra seja modulada dinamicamente. O exemplo mais comum de um eixo de variação seria o de {\itshape peso}, que varia desde uma letra mais fina até uma mais grossa, tornando contínuas e combináveis as variações que tipicamente são discretas (e.g. uma fonte não-{\itshape variable} terá um arquivo para o negrito, outro para o regular, outro para o leve etc). Em nosso teste, usamos 4 modulações tipográficas. {\itshape Peso}, {\itshape largura}, {\itshape inclinação} e {\itshape baseline shift}, como ilustradas pela Figura~\ref{fig:type_modulations}.
   
 \begin{figure}[H]
      {\centering
@@ -67,6 +67,7 @@
   \section{Metodologia}
   \label{sec:metodologia}
  
+ Criamos uma avaliação online para medir a preferência dos participantes por cada uma das modulações tipográficas quando usadas para representar as {\itshape features} prosódicas em cada uma das frases escolhidas. Estas vieram de um corpus de fala descrito emr \cite{pdpcosta2015} no qual frases semanticamente neutras\footnote{{\itshape Filha, rúcula para a pata} e {\itshape Passarinho, cuidado com a asa.}} eram enunciadas por uma atriz que buscava representar diferentes emoções --- no nosso caso, raiva, alegria, neutralidade, tristeza e surpresa. Durante 30 rodadas, os participantes ouviam uma versão de uma das frases para, em seguida, escolher entre duas possíveis representações tipográficas qual melhor condizia com o áudio. As combinações eram sorteadas, mas sempre correspondiam a modulações tipográficas geradas à partir de {\itshape features} extraídas daquele áudio.
   
 
 
@@ -80,23 +81,23 @@
         \toprule
         \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto {\itshape feature} representada} }     \\
         \midrule
-        emoção & peso & largura & inclinação & baseline shift  \\
+        \small{emoção} & \small{peso} & \small{largura} & \small{inclinação} & \small{basel. shift}  \\
         \midrule
-        raivosa       & 83\% & 34\% & 43\% & 39\% \\
-        alegre        & 34\% & 54\% & 47\% & 64\% \\
-        neutra        & 47\% & 52\% & \cellcolor[HTML]{9ef7cd}76\% & 25\% \\
-        triste        & 45\% & 52\% & 46\% & 58\% \\
-        surpresa      & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
+        raiva           & 83\% & 34\% & 43\% & 39\% \\
+        alegria         & 34\% & 54\% & 47\% & 64\% \\
+        neutralidade    & 47\% & 52\% & \cellcolor[HTML]{9ef7cd}76\% & 25\% \\
+        tristeza        & 45\% & 52\% & 46\% & 58\% \\
+        surpresa        & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
         \midrule
         \multicolumn{5}{c}{ \textbf{$f_0$ enquanto {\itshape feature} representada} }      \\
         \midrule
-        emoção & peso & largura & inclinação & baseline shift  \\
+        \small{emoção} & \small{peso} & \small{largura} & \small{inclinação} & \small{basel. shift}  \\
         \midrule
-        raivosa       & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
-        alegre        & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
-        neutra        & 47\% & 55\% & 63\% & 35\% \\
-        triste        & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
-        surpresa      & 71\% & 43\% & 41\% & 44\% \\
+        raiva           & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
+        alegria         & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
+        neutralidade    & 47\% & 55\% & 63\% & 35\% \\
+        tristeza        & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
+        surpresa        & 71\% & 43\% & 41\% & 44\% \\
         \bottomrule
     \end{tabular*}
     \caption{Preferência dos participantes para cada uma das modulações tipográficas por emoção por {\itshape feature}. }
