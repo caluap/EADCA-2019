@@ -63,8 +63,6 @@
   
   Na Tabela~\ref{tab:type_perf} apresentamos quão frequentemente cada modulação tipográfica (dada pela coluna) foi escolhida quando comparada às outras três modulações levando em conta cada emoção (dada pela linha) e cada {\itshape feature} sendo representada. Ressaltamos em verde as células que indicam a configuração preferida de modulação tipográfica e {\itshape feature} representada para uma dada emoção. Por exemplo, considerando a emoção {\itshape raiva}, a configuração com maior preferência pelos participantes foi {\itshape peso} representando $f_0$.
   
-  
-
 \begin{table}
     \begin{tabular*}{\linewidth}{lcccc}
         \toprule
@@ -93,7 +91,23 @@
     \label{tab:type_perf}
 \end{table}
   
+  Nas Figuras~\ref{fig:font_weight_as_f0} e \ref{fig:baseline_shift_as_f0}, mostramos como a performance das modulações tipográficas de {\itshape peso} e {\itshape baseline shift}, quando usadas para representar $f_0$, se correlacionam à média da distância entre o {\itshape centróide} e a $f_0$ em cada frase. Essa é uma métrica de intensidade mais robusta que \textsc{rms}, pois parte da constatação de que uma voz enunciada com maior intensidade tende a ter uma centróide de frequência mais elevada sem um aumento proporcional $f_0$. Assim, é pouco sensível a pequenas inconsistências no ambiente de gravação, como a distância entre a atriz e o microfone, ao contrário do \textsc{rms}.
   
+  Na Figura~\ref{fig:font_weight_as_f0}, plotamos a performance da modulação tipográfico {\itshape peso} quando usada para representar $f_0$ --- nas duas frases, a equação de regressão foi significante, com ``filha'' apresentando um $R^2$ de .93 e performance esperada de $(C-f_0) * 10^{-3} - 1.29$ e ``passarinho'' um $R^2$ de .89. e performance esperada de $(C-f_0) * 10^{-3} - 2.61$. Na Figura~\ref{fig:baseline_shift_as_f0}, performance de {\itshape baseline shift} representando $f_0$ --- nesse caso, a equação de regressão não foi significante, motivo pelo qual é apresentada como linha tracejada no gráfico.
+  
+\begin{figure}[H]
+     {\centering
+\includegraphics[width=\linewidth]{fig/font_weight_as_pitch.png}
+     \caption{Performance de {\itshape Peso} como representação de $f_0$}
+     \label{fig:font_weight_as_f0}\par}
+\end{figure}
+
+\begin{figure}[H]
+     {\centering
+\includegraphics[width=\linewidth]{fig/baseline_shift_as_pitch.png}
+     \caption{Performance de {\itshape baseline shift} como representação de $f_0$}
+     \label{fig:baseline_shift_as_f0}\par}
+\end{figure}
 
 \section{Conclus\~{o}es}
   \label{sec:conclusoes}
