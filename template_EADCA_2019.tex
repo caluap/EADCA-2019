@@ -10,6 +10,10 @@
 \usepackage[hang]{subfigure}
 \usepackage{psfrag}
 
+\usepackage[table]{xcolor}
+
+\usepackage{booktabs}
+
 \sloppy
 
 
@@ -56,6 +60,40 @@
 
 \section{Resultados}
   \label{sec:resultados}
+  
+  Na Tabela~\ref{tab:type_perf} apresentamos quão frequentemente cada modulação tipográfica (dada pela coluna) foi escolhida quando comparada às outras três modulações levando em conta cada emoção (dada pela linha) e cada {\itshape feature} sendo representada. Ressaltamos em verde as células que indicam a configuração preferida de modulação tipográfica e {\itshape feature} representada para uma dada emoção. Por exemplo, considerando a emoção {\itshape raiva}, a configuração com maior preferência pelos participantes foi {\itshape peso} representando $f_0$.
+  
+  
+
+\begin{table}
+    \begin{tabular*}{\linewidth}{lcccc}
+        \toprule
+        \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto {\itshape feature} representada} }     \\
+        \midrule
+        emoção & peso & largura & inclinação & baseline shift  \\
+        \midrule
+        raivosa       & 83\% & 34\% & 43\% & 39\% \\
+        alegre        & 34\% & 54\% & 47\% & 64\% \\
+        neutra        & 47\% & 52\% & \cellcolor[HTML]{9ef7cd}76\% & 25\% \\
+        triste        & 45\% & 52\% & 46\% & 58\% \\
+        surpresa      & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
+        \midrule
+        \multicolumn{5}{c}{ \textbf{$f_0$ enquanto {\itshape feature} representada} }      \\
+        \midrule
+        emoção & peso & largura & inclinação & baseline shift  \\
+        \midrule
+        raivosa       & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
+        alegre        & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
+        neutra        & 47\% & 55\% & 63\% & 35\% \\
+        triste        & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
+        surpresa      & 71\% & 43\% & 41\% & 44\% \\
+        \bottomrule
+    \end{tabular*}
+    \caption{Preferência dos participantes para cada uma das modulações tipográficas por emoção por {\itshape feature}. }
+    \label{tab:type_perf}
+\end{table}
+  
+  
 
 \section{Conclus\~{o}es}
   \label{sec:conclusoes}
