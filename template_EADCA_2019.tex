@@ -48,9 +48,9 @@
   \section{Introdu\c{c}\~{a}o}
   \label{sec:introducao}
 
-  O alfabeto latino codifica a representação de sons, mas ao lê-lo há poucas convenções que instruem o leitor sobre {\itshape como} expressar esses sons. De fato, há pontos, vírgulas, exclamações etc, mas muito da expressividade da fala fica a cargo do leitor. Há situações em que essa fala imperfeitamente transcrita serve como substituta direta de enunciações sonoras --- como o são as legendas em filmes, por exemplo ---, e, nesses casos, essas lacunas na codificação têm grande importância. Uma pessoa surda que vê um filme legendado, por exemplo, não tem acesso à expressividade na fala dos atores, o que frequentemente pode modificar o significado das palavras ditas --- a ironia, por exemplo, muitas vezes inverte o sentido das palavras, mas o que a diferencia de enunciações não-irônicas pode estarapenas no {\itshape modo} como são ditas as palavras.
+  O alfabeto latino codifica a representação de sons, mas ao lê-lo há poucas convenções gráficas a instruir o leitor sobre {\itshape como} expressar esses sons. De fato, há pontos, vírgulas, exclamações etc, mas muito da expressividade da fala não está representado. Há situações em que essa transcrição imperfeita da fala serve como substituta direta de enunciações sonoras --- como o são as legendas em filmes, por exemplo ---, e, nesses casos, essas lacunas na codificação têm grande importância. Uma pessoa surda que vê um filme legendado, por exemplo, não tem acesso à expressividade na fala dos atores, a qual frequentemente modifica o significado das palavras ditas --- a ironia, por exemplo, muitas vezes inverte o sentido das palavras, mas o que a diferencia de enunciações não-irônicas pode estar apenas no {\itshape modo} como são ditas as palavras.
   
-  Nesse contexto, o presente trabalho descreve uma abordagem computacional para extrair atributos acústicos da fala humana para, então, representá-los diretamente na forma tipográfica de textos que transcrevem essa fala. Buscamos avaliar com leitores quais modulações tipográficas foram mais adequadas para diferentes tipos de expressividade na fala.
+  Nesse contexto, o presente trabalho descreve uma abordagem computacional para extrair atributos acústicos da fala humana e, então, representá-los diretamente na forma tipográfica de textos que transcrevem essa fala. Buscamos avaliar com leitores quais modulações tipográficas foram mais adequadas para diferentes tipos de expressividade na fala.
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \section{Abordagem}
@@ -60,11 +60,11 @@
   
   Para a primeira, adotamos {\itshape features} prosódicas, ou seja, aquelas tipicamente relacionadas à propriedades expressivas no falar de sílabas, palavras ou frases, e que contemplam características como ritmo, intensidade, tom etc. Especificamente, escolhemos {\itshape raiz do valor quadrático médio} \textsc{(rms)}, como medida de intensidade, e {\itshape frequência fundamental} $(f_0)$ --- em ambos os casos, {\itshape features} que, se consideradas no nível da sílaba, retêm informações sobre expressividade afetiva da fala \cite{rao2010characterization}.
   
-  Para a representação das {\itshape features}, optamos pela tecnologia {\itshape variable fonts}, introduzida pela especifação OpenType 1.8\cite{varfontssepcs} em 2016 e que, desde então, já foi incorporada nos principais sistemas operacionais e navegadores \cite{varfontossupport}. Nela, os pontos que compõe o contorno do desenho de cada glifo em uma fonte podem ter suas coordenadas transpostas dentro de eixos de variação, combináveis entre si e que permitem, assim, que a aparência de cada letra seja dinamicamente modificada. O exemplo mais comum de eixo de variação seria o de {\itshape peso}, que varia desde uma letra mais fina até uma mais grossa, tornando contínuas e combináveis variações tipicamente discretas (e.g. uma fonte não-{\itshape variable} terá um arquivo para o negrito, outro para o regular, outro para o leve etc). Em nosso teste, usamos 4 modulações tipográficas. {\itshape Peso}, {\itshape largura}, {\itshape inclinação} e {\itshape baseline shift}, como ilustradas pela Figura~\ref{fig:type_modulations}.
+  Para a representação das {\itshape features}, optamos pela tecnologia {\itshape variable fonts}, introduzida pela especifação OpenType 1.8 \cite{varfontssepcs} em 2016 e que, desde então, já foi incorporada nos principais sistemas operacionais e navegadores \cite{varfontossupport}. Nela, os pontos que compõe o contorno do desenho de cada glifo em uma fonte podem ter suas coordenadas transpostas dentro de eixos de variação, combináveis entre si e que permitem, assim, que a aparência de cada letra seja dinamicamente modificada. O exemplo mais comum de eixo de variação seria o de {\itshape peso}, que varia desde uma letra mais fina até uma mais grossa, tornando contínuas e combináveis variações tipicamente discretas (e.g. uma fonte não-{\itshape variable} terá um arquivo para o negrito, outro para o regular, outro para o leve etc). Em nosso teste, usamos as modulações tipográficas: {\itshape peso}, {\itshape largura}, {\itshape inclinação} e {\itshape baseline shift}, como ilustradas na Figura~\ref{fig:type_modulations}.
   
 \begin{figure}[H]
      {\centering
-    \includegraphics[width=\linewidth]{fig/modulacoes.png}
+    \includegraphics[width=\linewidth]{fig/mod2.png}
      \caption{As quatro modulações tipográficas avaliadas no experimento}
      \label{fig:type_modulations}\par}
 \end{figure}
@@ -72,21 +72,22 @@
   \section{Metodologia}
   \label{sec:metodologia}
  
- Criamos uma avaliação online para medir a preferência dos participantes por cada uma das modulações tipográficas quando usadas para representar as {\itshape features} prosódicas em cada uma das frases escolhidas. Estas vieram de um corpus de fala descrito emr \cite{pdpcosta2015} no qual frases semanticamente neutras\footnote{{\itshape Filha, rúcula para a pata} e {\itshape Passarinho, cuidado com a asa.}} eram enunciadas por uma atriz que buscava representar diferentes emoções --- no nosso caso, raiva, alegria, neutralidade, tristeza e surpresa. Durante 30 rodadas, os participantes ouviam uma versão de uma das frases para, em seguida, escolher entre duas possíveis representações tipográficas qual melhor condizia com o áudio. As combinações eram sorteadas, mas sempre correspondiam a modulações tipográficas geradas à partir de {\itshape features} extraídas daquele áudio.
+ Criamos uma avaliação online para medir a preferência dos participantes por cada uma das modulações tipográficas quando usadas para representar as {\itshape features} prosódicas em cada uma das frases escolhidas. Estas vieram de um corpus de fala descrito em \cite{pdpcosta2015} no qual frases semanticamente neutras\footnote{{\itshape Filha, rúcula para a pata} e {\itshape Passarinho, cuidado com a asa.}} eram ditas por uma atriz que as buscava enunciar sob diferentes emoções --- no nosso caso, raiva, alegria, neutralidade, tristeza e surpresa. Em 30 rodadas, os participantes ouviam uma versão de uma das frases para, em seguida, escolher entre duas possíveis representações tipográficas qual melhor condizia com esse áudio. As combinações eram sorteadas, mas sempre correspondiam a modulações tipográficas geradas à partir de {\itshape features} extraídas daquele mesmo áudio.
   
 
 
 \section{Resultados}
   \label{sec:resultados}
   
-  Na Tabela~\ref{tab:type_perf} apresentamos quão frequentemente cada modulação tipográfica (dada pela coluna) foi escolhida quando comparada às outras três modulações levando em conta cada emoção (dada pela linha) e cada {\itshape feature} sendo representada. Ressaltamos em verde as células que indicam a configuração preferida de modulação tipográfica e {\itshape feature} representada para uma dada emoção. Por exemplo, considerando a emoção {\itshape raiva}, a configuração com maior preferência pelos participantes foi {\itshape peso} representando $f_0$.
+  Na Tabela~\ref{tab:type_perf} apresentamos quão frequentemente cada modulação tipográfica (dada pela coluna) foi escolhida na comparação com as outras três modulações possíveis, levando em conta cada emoção (dada pela linha) e cada {\itshape feature} sendo representada. Ressaltamos em verde as células que indicam a configuração preferida de modulação tipográfica para uma dada emoção, independente da {\itshape feature} representada. Por exemplo, considerando a emoção {\itshape raiva}, a configuração com maior preferência pelos participantes foi {\itshape peso} quando representando $f_0$.
   
 \begin{table}
+    \small
     \begin{tabular*}{\linewidth}{lcccc}
         \toprule
         \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto {\itshape feature} representada} }     \\
         \midrule
-        \small{emoção} & \small{peso} & \small{largura} & \small{inclinação} & \small{basel. shift}  \\
+        emoção & peso & largura & inclinação & baseline shift  \\
         \midrule
         raiva           & 83\% & 34\% & 43\% & 39\% \\
         alegria         & 34\% & 54\% & 47\% & 64\% \\
@@ -96,7 +97,7 @@
         \midrule
         \multicolumn{5}{c}{ \textbf{$f_0$ enquanto {\itshape feature} representada} }      \\
         \midrule
-        \small{emoção} & \small{peso} & \small{largura} & \small{inclinação} & \small{basel. shift}  \\
+        emoção & peso & largura & inclinação & baseline shift  \\
         \midrule
         raiva           & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
         alegria         & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
@@ -105,32 +106,32 @@
         surpresa        & 71\% & 43\% & 41\% & 44\% \\
         \bottomrule
     \end{tabular*}
-    \caption{Preferência dos participantes para cada uma das modulações tipográficas por emoção por {\itshape feature}. }
+    \caption{Preferência dos participantes para cada modulações tipográficas $\times$ emoção $\times$ {\itshape feature}. }
     \label{tab:type_perf}
 \end{table}
   
-  Nas Figuras~\ref{fig:font_weight_as_f0} e \ref{fig:baseline_shift_as_f0}, mostramos como a performance das modulações tipográficas de {\itshape peso} e {\itshape baseline shift}, quando usadas para representar $f_0$, se correlacionam à média da distância entre o {\itshape centróide} e a $f_0$ em cada frase. Essa é uma métrica de intensidade mais robusta que \textsc{rms}, pois parte da constatação de que uma voz enunciada com maior intensidade tende a ter uma centróide de frequência mais elevada sem um aumento proporcional $f_0$. Assim, é pouco sensível a pequenas inconsistências no ambiente de gravação, como a distância entre a atriz e o microfone, ao contrário do \textsc{rms}.
+  Nas Figuras~\ref{fig:font_weight_as_f0} e \ref{fig:baseline_shift_as_f0}, mostramos como a performance das modulações tipográficas de {\itshape peso} e {\itshape baseline shift}, quando usadas para representar $f_0$, se correlacionam à média da distância entre o {\itshape centróide} e a $f_0$ de cada frase. Essa é uma métrica de intensidade mais robusta que \textsc{rms}, pois parte da constatação de que uma voz enunciada com maior intensidade tende a ter uma centróide de frequência mais elevada sem um aumento proporcional em sua $f_0$. Assim, é uma métrica pouco sensível a pequenas inconsistências no ambiente de gravação, como a distância entre a atriz e o microfone, ao contrário do \textsc{rms}.
   
-  Na Figura~\ref{fig:font_weight_as_f0}, plotamos a performance da modulação tipográfico {\itshape peso} quando usada para representar $f_0$ --- nas duas frases, a equação de regressão foi significante, com ``filha'' apresentando um $R^2$ de .93 e performance esperada de $(C-f_0) * 10^{-3} - 1.29$ e ``passarinho'' um $R^2$ de .89. e performance esperada de $(C-f_0) * 10^{-3} - 2.61$. Na Figura~\ref{fig:baseline_shift_as_f0}, performance de {\itshape baseline shift} representando $f_0$ --- nesse caso, a equação de regressão não foi significante, motivo pelo qual é apresentada como linha tracejada no gráfico.
+  Na Figura~\ref{fig:font_weight_as_f0}, plotamos a performance da modulação tipográfica {\itshape peso} quando usada para representar $f_0$ --- nas duas frases, a equação de regressão foi significante, com ``filha'' apresentando um $R^2$ de .93 e performance esperada de $(C-f_0) * 10^{-3} - 1.29$ e ``passarinho'' um $R^2$ de .89 e performance esperada de $(C-f_0) * 10^{-3} - 2.61$. Na Figura~\ref{fig:baseline_shift_as_f0}, mostramos a performance de {\itshape baseline shift} quando representando $f_0$ --- nesse caso, a equação de regressão não foi significante, motivo pelo qual está representada como linha tracejada no gráfico.
   
 \begin{figure}[H]
      {\centering
-\includegraphics[width=\linewidth]{fig/font_weight_as_pitch.png}
-     \caption{Performance de {\itshape Peso} como representação de $f_0$}
+\includegraphics[width=0.9\linewidth]{fig/font_weight_as_pitch.png}
+     \caption{Performance de {\itshape Peso} enquanto $f_0$}
      \label{fig:font_weight_as_f0}\par}
 \end{figure}
 
 \begin{figure}[H]
      {\centering
-\includegraphics[width=\linewidth]{fig/baseline_shift_as_pitch.png}
-     \caption{Performance de {\itshape baseline shift} como representação de $f_0$}
+\includegraphics[width=0.9\linewidth]{fig/baseline_shift_as_pitch.png}
+     \caption{Performance de {\itshape baseline shift} enquanto $f_0$}
      \label{fig:baseline_shift_as_f0}\par}
 \end{figure}
 
 \section{Conclus\~{o}es}
   \label{sec:conclusoes}
   
-  Nossos resultados demonstraram que a escolha de modulação tipográfica mais adequada para representar mudanças nas {\itshape features} acústicas em uma dada enunciação depende do padrão acústico dessa mesma enunciação. Quando a fala é dita com intensidade, a modulação tipográfica {\itshape peso} é a mais adequada, tanto quando representando oscilações na intensidade ou na $f_0$. Inversamente, enunciações ditas com mais sutileza demandaram a modulação {\itshape baseline shift} representando variações de $f_0$.
+  Nossos resultados demonstraram que a escolha de modulação tipográfica mais adequada para representar mudanças nas {\itshape features} acústicas em uma dada enunciação depende do padrão acústico desta mesma. Quando a fala for dita com intensidade, a modulação tipográfica {\itshape peso} é mais adequada, tanto enquanto representação de oscilações na intensidade ou na $f_0$. Inversamente, enunciações ditas com mais sutileza demandaram a modulação {\itshape baseline shift} representando variações de $f_0$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \bibliographystyle{plain}
